@@ -72,6 +72,15 @@ export default function Dashboard() {
     };
   }, [router]);
 
+  const handleLogout = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      console.error('Error signing out:', error);
+    } else {
+      router.push('/login');
+    }
+  };
+
   if (!role || !email) {
     return <div>Loading...</div>;
   }
@@ -110,14 +119,12 @@ export default function Dashboard() {
                       </MenuButton>
                     </div>
                   </Menu>
-                  <form action="/api/auth/signout" method="post">
-                    <button
-                      type="submit"
-                      className="bg-red-500 hover:bg-red-700 text-white font-medium py-1 px-3 rounded"
-                    >
-                      Logout
-                    </button>
-                  </form>
+                  <button
+                    onClick={handleLogout}
+                    className="bg-red-500 hover:bg-red-700 text-white font-medium py-1 px-3 rounded"
+                  >
+                    Logout
+                  </button>
                 </div>
               </div>
             </div>
