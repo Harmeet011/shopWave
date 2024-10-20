@@ -13,7 +13,7 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: "Shopping App",
-  description: "A minimal shopping app built with Next.js",
+  description: "A shopping app built with Next.js",
 };
 
 export default async function RootLayout({

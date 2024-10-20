@@ -105,7 +105,7 @@ export default function UserDashboard() {
               <p>Price: {item.shop_items?.price ? `$${item.shop_items.price.toFixed(2)}` : 'N/A'}</p>
               <p>Quantity: {item.quantity || 0}</p>
               <button
-                onClick={() => removeFromCart(item.id)}
+                onClick={() => removeFromCart(item.item_id)}
                 className="mt-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
               >
                 Remove from Cart
